@@ -1,0 +1,4 @@
+Router sadece “bir istek geldi” kısmını yönetir.
+Ama “bu isteğe ne cevap vereceğiz?” kısmını controller yapar.
+
+mongodb+srv://Mehlika:<1234>@todoapp.xewtp1t.mongodb.net/?appName=todoApp

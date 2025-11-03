@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 
@@ -19,3 +20,10 @@ app.listen(PORT, () => {
     console.log(`Server running on ${PORT}.`)
 
 })
+
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log("MongoDB connected"))
+.catch((err) => console.log("MongoDB error:", err));
+
+//Eğer adres /api/todos ile başlıyorsa, o işlemi todoRoutes dosyasına gönder.
+app.use("/api/todos", require("./routes/todoRoutes"));
