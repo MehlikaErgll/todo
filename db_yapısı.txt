@@ -1,0 +1,45 @@
+Tables:
+
+USER:
+   - id (Primary Key) - int 
+   - name - Varchar(50) - required
+   - email (Unique) - Varchar(60) - unique - required
+   - password - varchar(30) - 
+   - created at - timestamp - default now
+   - updated_at - timestamp - default now
+   - deleted_at - boolean - default false
+
+CATEGORY:
+   - id (Primary Key) - int
+   - user_id (Foreign Key -> users.id) - required
+   - title - varchar(50) - required
+   - created_at - timestamp - default now
+   - color - char(7) - #rrggbb format
+   - deleted_at - boolean - default false
+   - updated_at - timestamp - default now
+
+TODO:
+   - id (Primary Key) - int
+   - user_id (Foreign Key -> users.id) - required
+   - category_id (FK -> Categories.id) - optional
+   - title - varchar(200) - required
+   - status - enum('new' , 'ongoing', 'completed') - default 'new'
+   - due_date - timestamp - optional
+   - created_at - timestamp - default now
+   - updated_at - timestamp - default now
+   - deleted_at - boolean - default false
+
+REMINDER:
+   - id (pk) - int
+   - todo_id (fk->todos.id) - required
+   - remind_at - timestamp 
+   - sent - boolean - default false
+   - created_at - timestamp - default now
+   - updated_at - timestamp - default now
+   - deleted_at - boolean - default false
+
+
+1 user -> N Todos
+1 user -> N Categories
+1 category -> N Todos
+1 todo -> N reminder
